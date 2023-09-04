@@ -1,0 +1,61 @@
+{
+  "name": "vercel-app-testing",
+  "root": ".",
+  "sourceRoot": "src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "vercel-app-testing:build"
+      },
+      "configurations": {
+        "debug": {
+          "inspect": "inspect"
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/vercel-app-testing",
+        "main": "src/main",
+        "tsConfig": "tsconfig.build.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "src/**/*.ts",
+          "test/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/vercel-app-testing"
+      ],
+      "options": {
+        "passWithNoTests": true,
+        "jestConfig": "jest.config.ts"
+      }
+    },
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "passWithNoTests": true,
+        "jestConfig": "jest.e2e-config.ts"
+      }
+    }
+  },
+  "tags": [],
+  "$schema": "node_modules/nx/schemas/project-schema.json"
+}

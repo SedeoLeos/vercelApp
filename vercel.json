@@ -4,7 +4,7 @@
 	"routes": [
 	  {
 		"src": "/(.*)",
-		"dest": "dist/apps/server/main.js"
+		"dest": "dist/vercel-app-testing/src/main.js"
 	  }
 	]
   }
