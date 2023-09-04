@@ -7,9 +7,9 @@
   "license": "UNLICENSED",
   "scripts": {
     "nx": "npx nx",
-    "start": "npx nx serve",
-    "build": "npx nx build",
-    "test": "npx nx test"
+    "start": "node dist/vercel-app-testing/src/main.js",
+    "build": "npm run nx -- build server",
+    "test": "npm run nx -- test"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
